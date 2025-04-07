@@ -23,7 +23,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-tbdyk+fvh3aym&#g4&%49k96ru0amx%fbjeov(abim0+zuzm56"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG", "False") == "True"
+# DEBUG = os.getenv("DEBUG", "False") == "True"
+DEBUG = "True"
 
 ALLOWED_HOSTS = ["127.0.0.1", "localhost", "0.0.0.0"]
 INTERNAL_IPS = ["127.0.0.1"]
@@ -105,16 +106,23 @@ WSGI_APPLICATION = "megano.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": os.getenv("DB_NAME", "megano_db"),  # имя базы данных
+#         "USER": os.getenv("DB_USER", "admin"),  # имя пользователя
+#         "PASSWORD": os.getenv("DB_PASSWORD", "admin"),  # пароль
+#         "HOST": os.getenv("DB_HOST", "db"),  # или IP-адрес сервера базы данных
+#         "PORT": os.getenv("DB_PORT", "5432"),  # порт
+#     },
+# }
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.getenv("DB_NAME", "megano_db"),  # имя базы данных
-        "USER": os.getenv("DB_USER", "admin"),  # имя пользователя
-        "PASSWORD": os.getenv("DB_PASSWORD", "admin"),  # пароль
-        "HOST": os.getenv("DB_HOST", "db"),  # или IP-адрес сервера базы данных
-        "PORT": os.getenv("DB_PORT", "5432"),  # порт
-    },
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    }
 }
+
 
 
 # Password validation
