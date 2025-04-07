@@ -83,7 +83,6 @@ class CustomUserEditForm(UserChangeForm):
 
         if password != password_reply:
             self.add_error('password_reply', 'Passwords do not match.')
-
         return cleaned_data
 
     def save(self, commit=True):
