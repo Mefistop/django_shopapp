@@ -13,6 +13,7 @@ wait_for_db() {
 wait_for_db
 
 # Выполнение миграций
+python src/manage.py makemigrations
 python src/manage.py migrate
 
 python src/manage.py shell << EOF
