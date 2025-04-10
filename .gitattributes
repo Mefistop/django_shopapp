@@ -1,2 +1,9 @@
-*.js linguist-language=Python
-*.css linguist-language=Python
+# Игнорировать все CSS-файлы при расчете статистики языков
+*.css linguist-vendored
+
+# Игнорировать конкретные папки (например, статические файлы)
+/static/** linguist-vendored
+/templates/** linguist-vendored
+
+# Убедиться, что Python-файлы учитываются
+*.py linguist-language=Python
